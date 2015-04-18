@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# script for fresh osx installs to configure specific features easily
+
+# Ask for sudo upfront
+sudo -v
+
+# keep sudo running
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# reduce transparency
+defaults write com.apple.universalaccess reduceTransparency -bool true
+
+# show hidden files
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# expand save dialogue by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# show file extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# show finder status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# allow text selection in QuickLook
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
+# avoid creation .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# show ~/Library
+chflags nohidden ~/Library
+
+# disable dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# remove dashboard from spaces
+defaults write com.apple.dock dashboard-in-overlay -bool true
+
+# don't send searches to apple
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
