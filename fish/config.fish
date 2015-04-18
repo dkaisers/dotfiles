@@ -14,7 +14,7 @@ set $fish_color_valid_path normal
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
-alias gs "git status"
+alias gs "git status -s"
 alias ga "git add"
 alias gc "git commit"
 alias gcm "git commit -m"
