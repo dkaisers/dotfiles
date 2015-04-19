@@ -21,6 +21,9 @@ alias gcm "git commit -m"
 alias gl "git log"
 alias gp "git push"
 
+# add brew path
+set --universal fish_user_paths $fish_user_paths /usr/local/sbin
+
 # clear anything
 clear
 
