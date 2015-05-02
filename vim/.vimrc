@@ -14,6 +14,8 @@ set laststatus=2
 set timeoutlen=50
 set background=dark
 set omnifunc=syntaxcomplete#Complete
+set textwidth=80
+set colorcolumn=+1
 
 let g:airline_powerline_fonts = 1
 let g:used_javascript_libs = 'jquery,angularjs'

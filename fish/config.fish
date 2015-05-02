@@ -14,12 +14,26 @@ set $fish_color_valid_path normal
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
-alias gs "git status -s"
+alias gs "git status -sb"
 alias ga "git add"
 alias gc "git commit"
 alias gcm "git commit -m"
 alias gl "git log"
 alias gp "git push"
+alias httpserver "python -m SimpleHTTPServer"
+
+# functions
+function __thefuck_repl -d 'Replace operators into fish-compatible'
+    set -l tmp (echo $argv | sed 's/ && / ; and /g')
+    echo $tmp | sed 's/ || / ; or /g'
+end
+
+function fuck -d 'Correct your previous console command'
+    set -l eval_script (mktemp 2>/dev/null ; or mktemp -t 'thefuck')
+    thefuck $history[1] > $eval_script
+    eval (__thefuck_repl (cat $eval_script))
+    rm $eval_script
+end
 
 # add brew path
 set --universal fish_user_paths $fish_user_paths /usr/local/sbin
