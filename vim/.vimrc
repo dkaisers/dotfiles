@@ -1,23 +1,51 @@
-" Not all plugins are usable with fish
-set shell=/bin/sh
+"--- VUNDLE CONFIG BEGIN
 
-execute pathogen#infect()
-syntax on
+set shell=bash
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'majutsushi/tagbar'
+Plugin 'rust-lang/rust.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+call vundle#end()
 filetype plugin indent on
 
-colorscheme Tomorrow-Night
+"--- VUNDLE CONFIG END
 
-set t_Co=256
-set number
-set noshowmode
-set laststatus=2
-set timeoutlen=50
+" syntax highlighting
+syntax enable
 set background=dark
-set omnifunc=syntaxcomplete#Complete
-set textwidth=80
-set colorcolumn=+1
+let g:solarized_termtrans=1
+colorscheme solarized
+
+" config
+set laststatus=2      " display airline
+set number            " display line numbers
+set updatetime=100    " update time
+set expandtab         " expand tabs
+set tabstop=2         " tab column count
+set shiftwidth=2      " shift width
+set ttimeoutlen=10    " airline timeout
+set t_Co=256          " airline colors
 
 let g:airline_powerline_fonts = 1
-let g:used_javascript_libs = 'jquery,angularjs'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:rustfmt_autosave=1
 
-nmap <F2> :NERDTreeToggle<CR>
+" keymaps
+nmap <F2>  :NERDTreeToggle<CR>
+nmap <F3>  :TagbarToggle<CR>
+nmap <c-s> :w<CR>
