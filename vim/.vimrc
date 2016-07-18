@@ -15,7 +15,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'tbastos/vim-lua'
 Plugin 'tpope/vim-fugitive'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -39,11 +41,13 @@ set tabstop=2         " tab column count
 set shiftwidth=2      " shift width
 set ttimeoutlen=10    " airline timeout
 set t_Co=256          " airline colors
+set mouse=a           " enable mouse support
 
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:rustfmt_autosave=1
+let g:ycm_rust_src_path='/Users/doka/Developer/src/rust/src'
 
 " keymaps
 nmap <F2>  :NERDTreeToggle<CR>
