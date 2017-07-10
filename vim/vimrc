@@ -1,0 +1,76 @@
+" ~~~~~~~~~~~~~
+" vundle config
+" ~~~~~~~~~~~~~
+
+set shell=bash
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'chriskempson/base16-vim'
+Plugin 'racer-rust/vim-racer'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'valloric/youcompleteme'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'yggdroot/indentline'
+
+Plugin 'elzr/vim-json'
+Plugin 'pangloss/vim-javascript'
+Plugin 'rust-lang/rust.vim'
+Plugin 'tpope/vim-markdown'
+
+call vundle#end()
+filetype plugin indent on
+
+" ~~~~~~
+" syntax
+" ~~~~~~
+
+syntax enable
+set background=dark
+colorscheme base16-paraiso
+
+" ~~~~~~
+" editor
+" ~~~~~~
+
+set number
+set updatetime=100
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
+" ~~~~~~~
+" airline
+" ~~~~~~~
+
+set laststatus=2
+set ttimeoutlen=10
+set t_Co=256
+
+let g:airline_powerline_fonts=1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
+" ~~~~~
+" racer
+" ~~~~~
+
+set hidden
+let g:racer_cmd='~/.cargo/bin/racer'
+let $RUST_SRC_PATH='~/Developer/Sources/rustc/current/src/'
+let g:racer_experimental_completer=1
+
+" ~~~~~~~~~~~~
+" key bindings
+" ~~~~~~~~~~~~
+
+nmap <F2> :NERDTreeToggle<CR>
